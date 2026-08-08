@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dołącz do gry</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Dołącz do gry 🎮</h1>
+
+    <form id="joinForm">
+
+        <input
+            type="text"
+            id="nickname"
+            placeholder="Wpisz swoją nazwę"
+            required
+        >
+
+        <div class="avatar-section">
+            <label for="avatarSelect">Wybierz awatar:</label>
+
+            <select id="avatarSelect">
+                <option value="SCP-173.png">SCP-173</option>
+                <option value="hubert.png">Hubert Moszka</option>
+                <option value="epstein.png">Jeffrey Epstein</option>
+                <option value="hubert-cube.gif">Moszka Cube</option>
+                <option value="epstein-sigma.gif">Sigma Epstein</option>
+                <option value="tusk.png">Donald Tusk</option>
+                <option value="lobotomy.gif">Lobotomia</option>
+                <option value="walk.gif">chodzenie</option>
+                <option value="ass.webp">dupa</option>
+                <option value="dylan30.png">Dylan, 30</option>
+                <option value="tibia.png">Tibia</option>
+                <option value="karty.png">Karty</option>
+                <option value="gabor.png">Gabor</option>
+                <option value="hitler.png">Hitler</option>
+                <option value="stary.png">Twój Stary</option>
+                <option value="sprzedam_czajnik.png">sprzedam_czajnik.png</option>
+                <option value="haker.png">haker.png</option>
+                <option value="chain.webp">Łańcuch</option>
+                <option value="drzwi.png">drzwi</option>
+                <option value="mentalnosc.png">mentalność</option>
+                <option value="nie_lapie.png">NIE ŁAPIE</option>
+                <option value="polska-edit.webp">POLSKA</option>
+                <option value="femboy.webp">smashable</option>
+                <option value="lgbt.webp">LGBT</option>
+                <option value="sunset.png">Zachód słońca</option>
+                <option value="romania.webp">🇷🇴</option>
+                <option value="gym.webp">🏋️</option>
+                <option value="jew.webp">Żyd, żyd, żyd</option>
+                <option value="feet.png">st00py</option>
+                <option value="feet_premium.png">st00py premium</option>
+                <option value="ww2.webp">2 Wojna Światowa</option>
+                <option value="boobs.webp">Cyce</option>
+                <option value="shrek.gif">szrek xd</option>
+                <option value="fire_wizard.webp">Mag Ognia</option>
+            </select>
+
+            <div class="avatar-preview">
+                <img id="avatarImage" src="/static/avatars/avatar1.png">
+            </div>
+        </div>
+
+        <button type="submit">Graj</button>
+
+    </form>
+</div>
+
+<script src="/static/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/.idea
+/__pycache__
+/build
+/dist
+*.spec
+*.pyc
+*.pyc
+/minigames/__pycache__
+/minigames/__pycache__

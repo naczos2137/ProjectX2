@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Detector</title>
+    <link rel="stylesheet" href="/static/css/minigames/fake_ai.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 id="roleInfo"></h2>
+
+    <!-- PYTANIE -->
+    <div id="questionSection">
+        <input type="text" id="questionInput" placeholder="Wpisz pytanie...">
+        <button id="sendQuestionBtn">Wyślij pytanie</button>
+    </div>
+
+    <!-- ODPOWIEDZI -->
+    <div id="answerSection">
+        <div id="currentQuestion" class="questionDisplay"></div>
+        <textarea id="answerInput" placeholder="Wpisz odpowiedź jak AI..."></textarea>
+        <button id="sendAnswerBtn">Wyślij odpowiedź</button>
+    </div>
+
+    <!-- LISTA ODPOWIEDZI -->
+    <div id="answersList"></div>
+
+</div>
+
+<script src="/static/js/minigames/fake_ai.js"></script>
+</body>
+</html>

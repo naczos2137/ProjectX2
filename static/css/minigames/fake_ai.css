@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #1e1e2f;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+input, textarea, button {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#answersList {
+    margin-top: 20px;
+}
+
+.answer {
+    background: #2a2a40;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 500px;
+    cursor: pointer;
+}
+
+.questionDisplay {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #f1c40f; /* złoty dla widoczności */
+}

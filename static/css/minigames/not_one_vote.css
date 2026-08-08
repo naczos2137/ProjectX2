@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #1e1e2f;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+#playersList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.player {
+    background: #2a2a40;
+    padding: 10px;
+    border-radius: 12px;
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.player:hover {
+    transform: scale(1.05);
+}
+
+.player img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.player-name {
+    margin-top: 5px;
+}

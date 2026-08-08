@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1e1e2f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #2a2a40;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+button {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary {
+    background: #4CAF50;
+}
+
+.danger {
+    background: #e74c3c;
+}
+
+#status {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
