@@ -6,13 +6,15 @@ from minigames.fake_ai import FakeAi
 from minigames.not_one_vote import NotOneVote
 from minigames.blind_auction import BlindAuction
 from minigames.be_closer import BeCloser
+from minigames.never_ever import NeverEver
 from item import Item
 
 ALL_GAME_MODES: dict[str: MiniGame] = {
     'fake_ai': FakeAi,
     'not_one_vote': NotOneVote,
     'blind_auction': BlindAuction,
-    'be_closer': BeCloser
+    'be_closer': BeCloser,
+    'never_ever': NeverEver
 }
 
 ITEMS: dict[str, Item] = { # Zmiana wymaga też zmiany shopItems w lobby.js

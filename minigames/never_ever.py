@@ -1,10 +1,10 @@
-from typing import Any
+from typing import Any, Optional
 import random
 
-from minigame import MiniGame
+from minigames.minigame import MiniGame
 from player import Player
 
-TASKS = {
+QUESTIONS = {
     "SEX": [
         "uprawiałem seksu",
         "uprawiałem seksu w miejscu publicznym",
@@ -100,7 +100,8 @@ TASKS = {
         "przyjechała do mnie do domu policja",
         "kupowałem narkotyków od dilera",
         "spiraciłem gry",
-        "nigdy się nie ciołem"
+        "nigdy się nie ciołem",
+        "rysowałem graffiti",
     ],
     "ŻYCIE": [
         "przeczytałem całej książki w tym roku",
@@ -115,6 +116,7 @@ TASKS = {
         "byłem poza eu",
         "miałem karty kredytowej",
         "wziołem pożyczki",
+        "kupiłem niczego na raty",
         "byłem w związku przynejmniej 2 lata",
         "zerwał ze mną nikt przez SMSa (discord/messenger/itp)",
         "byłem w situationshipie",
@@ -135,19 +137,24 @@ TASKS = {
     ]
 }
 
-class Challenge(MiniGame):
+class NeverEver(MiniGame):
     def __init__(self, players: dict[str, Player]):
         self.players: dict[str, Player] = players
+        self.selector_id: str = random.choice(list(players.keys()))
+        self.categories: list[str] = random.sample(list(QUESTIONS.keys()), 2)
+        self.question: Optional[str] = None
 
         self.finished = False
 
     def get_state(self, player_id: str):
         game_state = {
-            
+            "selector": self.selector_id,
+            "categories": self.categories,
+            "question": self.question
         }
         return game_state
 
     def set_info(self, player_id: str, info: dict[str, Any]):
         if not self.finished:
-            pass
-
+            if "category" in info and self.question == None:
+                self.question = random.choice(QUESTIONS[info["category"]])

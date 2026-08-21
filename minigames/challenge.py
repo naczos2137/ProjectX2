@@ -1,7 +1,7 @@
 from typing import Any
 import random
 
-from minigame import MiniGame
+from minigames.minigame import MiniGame
 from player import Player
 
 TASKS = [

@@ -27,7 +27,6 @@ TASKS = [
     'Zaśpiewaj karaoke piosenki wybranej przez osobę na 2 miejscu (piosenka musi być znana przez innych)',
     'Zrób freestyle disstrack na osobę na ostatnim miejscu',
     'Wypij shota zrobionego przez osobę na 2 miejscu',
-    'Daj na '
 ]
 
 class BlindAuction(MiniGame):

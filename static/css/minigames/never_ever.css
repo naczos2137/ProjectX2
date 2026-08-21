@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1e1e2f;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+#selectorInfo {
+    margin-top: 20px;
+}
+
+.selector-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.selector-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#categorySection {
+    margin-top: 30px;
+}
+
+.category-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 15px 25px;
+    width: 280px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #4CAF50;
+    color: white;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.category-btn:hover {
+    background: #43a047;
+}
+
+#questionSection {
+    margin-top: 40px;
+}
+
+.question {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.drink-info {
+    font-size: 22px;
+    color: #ffc107;
+}

@@ -31,6 +31,10 @@ def minigame_blind_auction():
 def minigame_be_closer():
     return render_template('minigames/be_closer.html')
 
+@app.route('/never_ever')
+def minigame_never_ever():
+    return render_template('minigames/never_ever.html')
+
 @app.route("/get_id")
 def get_id():
     return jsonify({
