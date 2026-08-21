@@ -10,7 +10,8 @@ TASKS = [
     'Zrób 20 pompek',
     'Szot czystej',
     'Walnij fikołka',
-    'Wyślij do rodzeństwa: "Jestem gejem"',
+    'Zrób fikołka do tyłu',
+    'Wyślij do kogoś z bliskiej rodziny: "Jestem gejem"',
     'Zrób 25 przysiadów',
     'Zrób 50 brzuszków',
     'Idź dotknąć trawy',
@@ -25,7 +26,8 @@ TASKS = [
     'Zrób 1 minutę planka',
     'Zaśpiewaj karaoke piosenki wybranej przez osobę na 2 miejscu (piosenka musi być znana przez innych)',
     'Zrób freestyle disstrack na osobę na ostatnim miejscu',
-    'Wypij shota zrobionego przez osobę na 2 miejscu'
+    'Wypij shota zrobionego przez osobę na 2 miejscu',
+    'Daj na '
 ]
 
 class BlindAuction(MiniGame):

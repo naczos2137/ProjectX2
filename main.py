@@ -74,6 +74,8 @@ def join():
 
     if client_id not in game.players:
         game.add_player(client_id, name, avatar)
+    else:
+        game.update_player(client_id, name, avatar)
 
     return jsonify({"status": "ok"})
 

@@ -11,10 +11,10 @@ TASKS = [
     ("Kiss or slap {random_player}", (1)),
     ("Daj klapsa wybranej przez Ciebie osobie", (1)),
     ("Wymyśl 1 nigdy-przenigdy", (1)),
-    ("Zrób 25 brzuszków", (1,))
-    ("Wymień 1 negatywną cechę {random_player}", (1,))
+    ("Zrób 25 brzuszków", (1)),
+    ("Wymień 1 negatywną cechę {random_player}", (1)),
     ("Zamieńcie się 1 częścią ubrania", (2)),
-    ("Kamień papier nożyce. Przegrany pije", (2,))
+    ("Kamień papier nożyce. Przegrany pije", (2)),
     ("Stań na 1 nodze. Ostatnia osoba pije", (3,4,5)),
     ("Podłoga to lawa!. Ostatnia osoba pije", (3,4,5)),
 ]

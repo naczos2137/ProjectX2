@@ -25,7 +25,7 @@ class BeCloser(MiniGame):
             ('Ile wynosi 2^12?', 2**12),
             ('Jaka liczba została wylosowana (1-1000)?', random.randint(1, 1000)),
             ('Ile pieniędzy ma najbogatszy gracz?', max([player.money for player in players.values()])),
-            ('Ile \% \alkoholu ma soplica czekoladowa wedel?', 15),
+            (r'Ile % alkoholu ma soplica czekoladowa wedel?', 15),
             ('Ile osób rekordowo grało na raz w SCP:SL?', 13908),
             ('Ile kosztuje OF Fagaty na rok (22.03.2026)?', 634),
             ('O ile miesięcy Naczos jest starszy od Queen of The Black?', 3),
@@ -37,7 +37,9 @@ class BeCloser(MiniGame):
             ('Ile jest napalonych kobiet Wrocław online - samotni seniorzy?\n<img src="/static/minigames/reklama_1.png" width="200">', 150),
             ('Ile minut przedłuża seks Start Erotique?\n<img src="/static/minigames/reklama_2.png" width="200">', 55),
             ('Ile części ma skibidi toilet (stan 27.07.2026)?', 79),
-        
+            ('Ile kosztują te słuchawki do wykrywania chorób biorezonansem?\n<img src="/static/minigames/lek_sluchawki.png" width="200">', 1300),
+            ('Ile kosztuje taki kamień do cipy przyciągający partnerów?\n<img src="/static/minigames/lek_cipojajo.png" width="200">', 333),
+            ('Ile kosztuje godzinna sesja zdejmowania klątw?\n<img src="/static/minigames/lek_szaman.png" width="200">', 1099)
         ]
 
         self.players: dict[str, Player] = players

@@ -28,11 +28,14 @@ class Game:
     def __init__(self):
         self.drunk: bool = True
         self.players: dict[str, Player] = {}
+        self.online_players: dict[str, Player] = {}
         self.current_lvl = "lobby"
         self.game_mode: MiniGame | None = None
         self.buy_history: list[dict[str, str]] = []
 
     def get_state(self, player_id: str):
+        if player_id not in self.online_players:
+            self.online_players[player_id] = self.players[player_id]
         state = {
             'lvl': f"/{self.current_lvl}" if player_id in self.players.keys() else "/",
             'players': [{
@@ -41,7 +44,7 @@ class Game:
                 "avatar": player.avatar,
                 "money": player.money,
                 "beer": player.new_beers
-            } for player in self.players.values()],
+            } for player in self.online_players.values()],
             'game_state': self.game_mode.get_state(player_id) if self.game_mode else {},
             'buy_history': self.buy_history
         }
@@ -54,16 +57,21 @@ class Game:
     def add_player(self, player_id, name: str, avatar: str):
         self.players[player_id] = Player(player_id, name, avatar)
 
+    def update_player(self, player_id, name: str, avatar: str):
+        self.players[player_id].name = name
+        self.players[player_id].avatar = avatar
+
     def new_round(self):
         for player in self.players.values():
             player.new_beers = 0
         self.current_lvl = random.choice(list(ALL_GAME_MODES.keys()))
-        self.game_mode = ALL_GAME_MODES[self.current_lvl](self.players)
+        self.game_mode = ALL_GAME_MODES[self.current_lvl](self.online_players)
         self.buy_history.clear()
 
     def finish_round(self):
         self.current_lvl = "lobby"
         self.game_mode = None
+        self.online_players.clear()
 
     def buy(self, buyer_id, item, target_id=None):
         buyer = self.players[buyer_id]
