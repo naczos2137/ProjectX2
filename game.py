@@ -10,6 +10,7 @@ from minigames.blind_auction import BlindAuction
 from minigames.be_closer import BeCloser
 from minigames.never_ever import NeverEver
 from minigames.fuck_marry_kill import FuckMarryKill
+from minigames.challenge import Challenge
 from item import Item
 
 class _GameMode:
@@ -34,12 +35,13 @@ class _GameMode:
                 gamemode._chance += gamemode._chances_added
         return selected_gamemode
 
-# _GameMode('fake_ai', FakeAi, 2)
-# _GameMode('not_one_vote', NotOneVote, 1)
-# _GameMode('blind_auction', BlindAuction, 5)
-# _GameMode('be_closer', BeCloser, 5)
-# _GameMode('never_ever', NeverEver, 5)
-_GameMode('fuck_marry_kill', FuckMarryKill, 5)
+_GameMode('fake_ai', FakeAi, 2)
+_GameMode('not_one_vote', NotOneVote, 1)
+_GameMode('blind_auction', BlindAuction, 5)
+_GameMode('be_closer', BeCloser, 5)
+_GameMode('never_ever', NeverEver, 5)
+_GameMode('fuck_marry_kill', FuckMarryKill, 4)
+# _GameMode('challenge', Challenge, 2)
 
 ITEMS: dict[str, Item] = { # Zmiana wymaga też zmiany shopItems w lobby.js
     "you_drink": Item("you_drink", 200, lambda buyer_name, target_name: f'{target_name} pije!'),

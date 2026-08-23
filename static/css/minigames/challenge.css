@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1e1e2f;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+#players {
+    margin-bottom: 30px;
+}
+
+.player {
+    background: #2a2a40;
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 10px;
+    max-width: 350px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    font-size: 32px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#task {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+#reward {
+    color: #ffd54f;
+    font-size: 20px;
+    margin-top: 25px;
+}

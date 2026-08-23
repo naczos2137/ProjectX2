@@ -39,6 +39,10 @@ def minigame_never_ever():
 def minigame_fuck_marry_kill():
     return render_template('minigames/fuck_marry_kill.html')
 
+@app.route('/challenge')
+def minigame_challenge():
+    return render_template('minigames/challenge.html')
+
 @app.route("/get_id")
 def get_id():
     return jsonify({
