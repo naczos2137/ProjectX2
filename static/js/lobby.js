@@ -89,6 +89,20 @@ const shopItems = [
         require_target: false,
         view_name: "Każdy musi się do Ciebie zwracać wybranym przez Ciebie tytułem (np. Królu), albo pije ⭐",
         image: "/static/shop/king.png"
+    },
+    {
+        name: "kings_cup_add",
+        cost: 400,
+        require_target: false,
+        view_name: "Dolewasz co chcesz do Kings Cup-a",
+        image: "/static/shop/kings_cup_add.webp"
+    },
+    {
+        name: "kings_cup_drink",
+        cost: 2000,
+        require_target: true,
+        view_name: "Drink w Kings Cup-ie gotowy",
+        image: "/static/shop/kings_cup_drink.gif"
     }
 ];
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Any
 import random
 from player import Player
@@ -7,15 +9,37 @@ from minigames.not_one_vote import NotOneVote
 from minigames.blind_auction import BlindAuction
 from minigames.be_closer import BeCloser
 from minigames.never_ever import NeverEver
+from minigames.fuck_marry_kill import FuckMarryKill
 from item import Item
 
-ALL_GAME_MODES: dict[str: MiniGame] = {
-    'fake_ai': FakeAi,
-    'not_one_vote': NotOneVote,
-    'blind_auction': BlindAuction,
-    'be_closer': BeCloser,
-    'never_ever': NeverEver
-}
+class _GameMode:
+    _ALL_GAMEMODES:  list[_GameMode] = []
+    def __init__(self, name: str, obj_class: type[MiniGame], chances_added: int):
+        self.name: str = name
+        self.obj_class: type[MiniGame] = obj_class
+        self._chances_added: int = chances_added
+        self._chance: int = 25
+
+        _GameMode._ALL_GAMEMODES.append(self)
+
+    @staticmethod
+    def get_gamemode() -> _GameMode:
+        selected_gamemode: _GameMode = random.choices(
+            population=_GameMode._ALL_GAMEMODES, 
+            weights=[gamemode._chance for gamemode in _GameMode._ALL_GAMEMODES],
+            k=1
+            )[0]
+        for gamemode in _GameMode._ALL_GAMEMODES:
+            if gamemode != selected_gamemode:
+                gamemode._chance += gamemode._chances_added
+        return selected_gamemode
+
+# _GameMode('fake_ai', FakeAi, 2)
+# _GameMode('not_one_vote', NotOneVote, 1)
+# _GameMode('blind_auction', BlindAuction, 5)
+# _GameMode('be_closer', BeCloser, 5)
+# _GameMode('never_ever', NeverEver, 5)
+_GameMode('fuck_marry_kill', FuckMarryKill, 5)
 
 ITEMS: dict[str, Item] = { # Zmiana wymaga też zmiany shopItems w lobby.js
     "you_drink": Item("you_drink", 200, lambda buyer_name, target_name: f'{target_name} pije!'),
@@ -24,6 +48,8 @@ ITEMS: dict[str, Item] = { # Zmiana wymaga też zmiany shopItems w lobby.js
     "question_master": Item("question_master", 500, lambda buyer_name, target_name: f'Odpowiesz na pytanie {buyer_name} = PIJESZ!'),
     "new_rule": Item("new_rule", 999, lambda buyer_name, target_name: f'{buyer_name} wymyśla nową zasade!'),
     "king_title": Item("king_title", 2000, lambda buyer_name, target_name: f'{buyer_name} podaje swój nowy tytuł! Jeśli inaczej się zwrócisz do niego/j to pijesz'),
+    "kings_cup_add": Item("kings_cup_add", 400, lambda buyer_name, target_name: f'{buyer_name} dolewa coś do Kings Cup-a'),
+    "kings_cup_drink": Item("kings_cup_drink", 2000, lambda buyer_name, target_name: f'{target_name} Pije Kings Cup-a!'),
 }
 
 class Game:
@@ -63,18 +89,6 @@ class Game:
         self.players[player_id].name = name
         self.players[player_id].avatar = avatar
 
-    def new_round(self):
-        for player in self.players.values():
-            player.new_beers = 0
-        self.current_lvl = random.choice(list(ALL_GAME_MODES.keys()))
-        self.game_mode = ALL_GAME_MODES[self.current_lvl](self.online_players)
-        self.buy_history.clear()
-
-    def finish_round(self):
-        self.current_lvl = "lobby"
-        self.game_mode = None
-        self.online_players.clear()
-
     def buy(self, buyer_id, item, target_id=None):
         buyer = self.players[buyer_id]
         target = self.players.get(target_id, None)
@@ -85,3 +99,17 @@ class Game:
                 'buyer': buyer_id,
                 'item': item.get_notification(buyer.name, target.name if target else None),
             })
+
+    def new_round(self):
+        for player in self.players.values():
+            player.new_beers = 0
+        gamemode: _GameMode = _GameMode.get_gamemode()
+        self.current_lvl = gamemode.name
+        self.game_mode = gamemode.obj_class(self.online_players)
+        self.buy_history.clear()
+
+    def finish_round(self):
+        self.current_lvl = "lobby"
+        self.game_mode = None
+        self.online_players.clear()
+
