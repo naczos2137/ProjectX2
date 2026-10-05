@@ -5,6 +5,7 @@ from player import Player
 import time
 import requests
 from typing import Callable
+import threading
 
 AI_TIMEOUT = 40
 
@@ -35,10 +36,7 @@ class FakeAi(MiniGame):
         if not self.finished:
             if "set_question" in info:
                 self.question = info["set_question"]
-                self.answers_dict["ai"] = self.get_ai_text()
-                if len(self.answers_dict) == len(self.players):
-                    self.answers_list = list(self.answers_dict.items())
-                    random.shuffle(self.answers_list)
+                threading.Thread(target=self.get_ai_text, daemon=True).start()
             if "set_answers" in info:
                 self.answers_dict[player_id] = info["set_answers"]
                 if len(self.answers_dict) == len(self.players):
@@ -73,5 +71,9 @@ class FakeAi(MiniGame):
             }
         )
 
-        return response.json().get("response", "błąd wyskoczył w get_ai_text() xD, a gabor to alkoholik")
+        self.answers_dict["ai"] = response.json().get("response", "błąd wyskoczył w get_ai_text() xD, a gabor to alkoholik")
+
+        if len(self.answers_dict) == len(self.players):
+            self.answers_list = list(self.answers_dict.items())
+            random.shuffle(self.answers_list)
 

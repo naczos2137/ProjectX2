@@ -108,5 +108,9 @@ async function interprateState() {
     interprateGame(status.game_state);
 }
 
-setInterval(interprateState, 2000);
-interprateState();
+async function loop() {
+    await interprateState();
+    setTimeout(loop, 2000);
+}
+
+loop();

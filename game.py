@@ -78,6 +78,7 @@ class Game:
             'game_state': self.game_mode.get_state(player_id) if self.game_mode else {},
             'buy_history': self.buy_history
         }
+        state['status_hash'] = str(state).__hash__()
         return state
 
     def set_info(self, player_id: str, game_info: dict[str, Any]):

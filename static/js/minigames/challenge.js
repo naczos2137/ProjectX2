@@ -58,5 +58,9 @@ async function interpretState() {
     interpretGame(status.game_state);
 }
 
-setInterval(interpretState, 2000);
-interpretState();
+async function loop() {
+    await interprateState();
+    setTimeout(loop, 2000);
+}
+
+loop();

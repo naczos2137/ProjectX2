@@ -3,7 +3,7 @@ const playersList = document.getElementById("playersList");
 const clientId = localStorage.getItem("client_id");
 
 let players = [];
-let lastStatus = null;
+let lastStatusHash = null;
 let shopRendered = false;
 
 function renderPlayers() {
@@ -248,21 +248,19 @@ async function loadPlayers() {
 
     const status = await res.json();
 
-    if (lastStatus &&
-        JSON.stringify(lastStatus) === JSON.stringify(status)) {
+    if (lastStatusHash &&
+        lastStatusHash === status.status_hash) {
         return; // nic się nie zmieniło → nie renderujemy
     }
 
-    lastStatus = status;
+    lastStatusHash = status.status_hash;
 
     if (status.lvl !== window.location.pathname) {
         window.location.href = status.lvl
         return
     }
 
-    const new_players = status.players;
-    if(new_players === players) return;
-    players = new_players;
+    players = status.players;
     if (!shopRendered) {
         shopRendered = true;
         renderShop()
@@ -273,9 +271,9 @@ async function loadPlayers() {
     let buyHistory = status.buy_history;
     drawBuyHistory(buyHistory);
 }
+async function loop() {
+    await loadPlayers();
+    setTimeout(loop, 2000);
+}
 
-setInterval(loadPlayers, 2000);
-loadPlayers();
-
-
-// inicjalizacja
+loop();
