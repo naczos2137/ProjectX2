@@ -8,12 +8,14 @@ from typing import Callable
 
 TASKS = [
     'Zrób 20 pompek',
+    'Zrób 1 pompkę na 1 ręce',
+    'Zrób 10 przysiadów bułgarskich',
+    'Zrób 25 przysiadów',
+    'Zrób 50 brzuszków',
     'Szot czystej',
     'Walnij fikołka',
     'Zrób fikołka do tyłu',
     'Wyślij do kogoś z bliskiej rodziny: "Jestem gejem"',
-    'Zrób 25 przysiadów',
-    'Zrób 50 brzuszków',
     'Idź dotknąć trawy',
     'Tańcz przez około 30s:\n<img src="/static/minigames/fortnite1.gif" width="200">',
     'Tańcz przez około 30s:\n<img src="/static/minigames/fortnite2.gif" width="200">',
@@ -27,6 +29,11 @@ TASKS = [
     'Zaśpiewaj karaoke piosenki wybranej przez osobę na 2 miejscu (piosenka musi być znana przez innych)',
     'Zrób freestyle disstrack na osobę na ostatnim miejscu',
     'Wypij shota zrobionego przez osobę na 2 miejscu',
+    'Przez minutę komentuj na żywo to, co robi osoba na 2 miejscu, jakbyś relacjonował finał mistrzostw świata',
+    'Wygłoś przez minutę przemowę, dlaczego to właśnie ty powinieneś zostać burmistrzem tego pokoju',
+    'Zrób 45-sekundowy stand-up o tej ekipie — żartuj z sytuacji, nie z czyichś kompleksów',
+    'Z osobą na 2 miejscu odegrajcie dramatyczną scenę rozstania, w której jedna osoba jest tosterem',
+    'Przez minutę prowadź teleturniej, w którym pozostali gracze są uczestnikami; wymyśl pytania i ogłoś zwycięzcę',
 ]
 
 class BlindAuction(MiniGame):
@@ -55,4 +62,3 @@ class BlindAuction(MiniGame):
 
                     self.players[bids_sorted[0][0]].money += bids_sorted[0][1]
                     self.players[bids_sorted[-1][0]].new_beers += 1
-

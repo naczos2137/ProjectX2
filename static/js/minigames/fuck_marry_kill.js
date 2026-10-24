@@ -159,7 +159,7 @@ function interpretGame(game_state) {
 // LOOP
 // -----------------
 
-async function interpretState() {
+async function interprateState() {
 
     const clientId =
         localStorage.getItem("client_id");

@@ -102,6 +102,7 @@ QUESTIONS = {
         "spiraciłem gry",
         "nigdy się nie ciołem",
         "rysowałem graffiti",
+        "pobiłem się na ulicy"
     ],
     "ŻYCIE": [
         "przeczytałem całej książki w tym roku",
@@ -133,7 +134,10 @@ QUESTIONS = {
         "przytuliłem ukraińca",
         "przytuliłem białorusina",
         "nagrałem piosenki",
-        'łowiłem ryb'
+        'łowiłem ryb',
+        "byłem na ponad 2 dni w szpitalu (po 15 roku życia)",
+        "byłem w szpitalu psychiatrycznym",
+        "zwolniono mnie z pracy",
     ]
 }
 
